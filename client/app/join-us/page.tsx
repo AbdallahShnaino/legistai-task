@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import JoinUsForm from "@/components/joinUs/joinUs";
+import JoinUsForm from "@/components/JoinUs/JoinUs";
 import Image from "next/image";
 
 export default function JoinUsScreen() {

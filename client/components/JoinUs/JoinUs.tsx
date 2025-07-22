@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useLogin } from "@/lib/auth/hooks";
 import { validateCredentials } from "@/lib/auth/utils";
-import Submit from "./submit";
+import Submit from "./Submit";
 
 export default function JoinUsForm() {
   const [email, setEmail] = useState("");

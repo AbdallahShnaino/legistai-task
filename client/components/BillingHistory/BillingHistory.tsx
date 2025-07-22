@@ -9,7 +9,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import FilterSelect from "../FilterSelect/FilterSelect";
-import HeaderSearch from "../headerSearch/headerSearch";
+import HeaderSearch from "../HeaderSearch/HeaderSearch";
 
 export default function BillingHistory() {
   return (
