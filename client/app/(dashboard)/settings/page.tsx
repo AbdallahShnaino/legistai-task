@@ -2,8 +2,7 @@
 
 import Profile from "@/components/profile/profile";
 import SelectLang from "@/components/select-lang/selectLan";
-import { Search, Globe, Bell, ChevronDown, Download } from "lucide-react";
-import { FC } from "react";
+import { Search, Bell } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import BillingHistory from "@/components/BillingHistory/BillingHistory";
@@ -15,7 +14,7 @@ export default function SettingsScreen() {
         <div className="flex-1 max-w-xl bg-gray-50 relative">
           <Search
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
-            size={24} // ⬅️ made icon slightly bigger
+            size={24}
           />
           <input
             type="text"
@@ -146,42 +145,3 @@ export default function SettingsScreen() {
     </div>
   );
 }
-
-interface BillingRowProps {
-  invoice: string;
-  date: string;
-  description: string;
-  status: "paid" | "pending";
-}
-
-const BillingRow: FC<BillingRowProps> = ({
-  invoice,
-  date,
-  description,
-  status,
-}) => {
-  return (
-    <tr className="border-b border-gray-100 hover:bg-gray-50">
-      <td className="py-4 px-4">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
-            <div className="w-4 h-4 bg-gray-400 rounded"></div>
-          </div>
-          <span className="font-medium text-gray-900">{invoice}</span>
-        </div>
-      </td>
-      <td className="py-4 px-4 text-gray-600">{date}</td>
-      <td className="py-4 px-4 text-gray-600">{description}</td>
-      <td className="py-4 px-4">
-        <div className="flex items-center gap-2">
-          <button className="text-blue-600 hover:text-blue-700 text-sm">
-            View
-          </button>
-          <button className="text-blue-600 hover:text-blue-700 text-sm">
-            Download
-          </button>
-        </div>
-      </td>
-    </tr>
-  );
-};
