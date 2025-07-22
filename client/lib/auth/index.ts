@@ -1,4 +1,3 @@
-// Types
 export type {
   User,
   AuthResponse,
@@ -8,15 +7,12 @@ export type {
   AuthError,
 } from "./types";
 
-// Services
 export { authService } from "./service";
 export { authStorage } from "./storage";
 export { authAPI } from "./api";
 
-// Context and Provider
 export { AuthProvider, useAuth } from "./context";
 
-// Hooks
 export {
   useLogin,
   useLogout,
@@ -25,7 +21,6 @@ export {
   useRequireAuth,
 } from "./hooks";
 
-// Utilities
 export {
   isTokenValid,
   decodeToken,
@@ -34,5 +29,4 @@ export {
   validateCredentials,
 } from "./utils";
 
-// Re-export for backward compatibility
 export { authService as default } from "./service";

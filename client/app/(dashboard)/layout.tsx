@@ -6,7 +6,7 @@ import AuthGuard from "../../components/auth/AuthGuard";
 const geistSans = Poppins({
   variable: "--font-poppins",
   weight: "300",
-  subsets: ["latin"], // Add this line
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {

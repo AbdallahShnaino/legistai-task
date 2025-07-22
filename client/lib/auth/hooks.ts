@@ -6,16 +6,12 @@ import { useAuth } from "./context";
 import { LoginCredentials } from "./types";
 import { validateCredentials } from "./utils";
 
-/**
- * Hook for login functionality with validation
- */
 export function useLogin() {
   const { login, isLoading } = useAuth();
   const router = useRouter();
 
   const loginWithValidation = useCallback(
     async (credentials: LoginCredentials, redirectTo: string = "/") => {
-      // Validate credentials
       const errors = validateCredentials(
         credentials.email,
         credentials.password
@@ -27,7 +23,6 @@ export function useLogin() {
       try {
         const response = await login(credentials);
 
-        // Redirect after successful login
         router.push(redirectTo);
 
         return response;
@@ -44,9 +39,6 @@ export function useLogin() {
   };
 }
 
-/**
- * Hook for logout functionality
- */
 export function useLogout() {
   const { logout } = useAuth();
   const router = useRouter();
@@ -64,9 +56,6 @@ export function useLogout() {
   };
 }
 
-/**
- * Hook to get current user information
- */
 export function useCurrentUser() {
   const { user, isAuthenticated, isLoading } = useAuth();
 
@@ -77,9 +66,6 @@ export function useCurrentUser() {
   };
 }
 
-/**
- * Hook for authentication status checks
- */
 export function useAuthStatus() {
   const { isAuthenticated, isLoading, verifyToken } = useAuth();
 
@@ -95,9 +81,6 @@ export function useAuthStatus() {
   };
 }
 
-/**
- * Hook for protected routes - redirects if not authenticated
- */
 export function useRequireAuth(redirectTo: string = "/join-us") {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();

@@ -1,14 +1,39 @@
 "use client";
 
+import Profile from "@/components/Profile/Profile";
+import SelectLanguage from "@/components/SelectLanguage/SelectLanguage";
+import { Search, Bell } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Image from "next/image";
 import BillingHistory from "@/components/BillingHistory/BillingHistory";
-import SettingsHeader from "@/components/SettingHeader/SettingHeader";
-import MyCard from "@/components/MyCard/MyCard";
 
 export default function SettingsScreen() {
   return (
     <div className="flex- py-4 pl-4 bg-white">
-      <SettingsHeader />
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex-1 max-w-xl bg-gray-50 relative">
+          <Search
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+            size={24}
+          />
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full pl-12 pr-4 py-3 text-base border rounded-3xl focus:outline-none focus:ring-2 focus:ring-gray-100"
+          />
+        </div>
+
+        <div className="flex items-center gap-4">
+          <SelectLanguage />
+
+          <div className="relative inline-flex items-center justify-center w-12 h-12bg-gray-50 rounded-full">
+            <Bell className="w-6 h-6 text-black fill-black" />
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-400 rounded-full" />
+          </div>
+
+          <Profile />
+        </div>
+      </div>
 
       <div className="bg-white rounded-lg p-6">
         <div className="mb-8">
@@ -66,7 +91,46 @@ export default function SettingsScreen() {
               this tab under development go to Billing tab.
             </TabsContent>
             <TabsContent value="billing">
-              <MyCard />
+              <div className="mb-8 bg-gray-50 p-6 rounded-lg">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    My Card
+                  </h2>
+
+                  <div>
+                    <button className="text-black text-sm font-medium flex items-center gap-2 bg-white border border-gray-200 rounded-lg px-3 py-2 hover:bg-gray-50 transition">
+                      <Image
+                        src="/icons/edit.svg"
+                        alt="edit icon"
+                        width={16}
+                        height={16}
+                      />
+                      Manage Cards
+                    </button>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <Image
+                    src="/card2.png"
+                    alt="card 2"
+                    width={311}
+                    height={200}
+                  />
+                  <Image
+                    src="/card1.png"
+                    alt="card 1"
+                    width={311}
+                    height={200}
+                  />
+                  <Image
+                    src="/card3.png"
+                    alt="card 3"
+                    width={311}
+                    height={200}
+                  />
+                </div>
+              </div>
               <BillingHistory />
             </TabsContent>
             <TabsContent value="notifications">

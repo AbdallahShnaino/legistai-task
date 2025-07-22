@@ -16,7 +16,6 @@ import {
 } from "./types";
 import { authService } from "./service";
 
-// Initial state
 const initialState: AuthState = {
   user: null,
   token: null,
@@ -24,7 +23,6 @@ const initialState: AuthState = {
   isLoading: true,
 };
 
-// Action types
 type AuthAction =
   | { type: "AUTH_LOADING" }
   | { type: "AUTH_SUCCESS"; payload: { user: User; token: string } }
@@ -35,7 +33,6 @@ type AuthAction =
       payload: { isAuthenticated: boolean; user: User | null };
     };
 
-// Reducer
 function authReducer(state: AuthState, action: AuthAction): AuthState {
   switch (action.type) {
     case "AUTH_LOADING":
@@ -80,10 +77,8 @@ function authReducer(state: AuthState, action: AuthAction): AuthState {
   }
 }
 
-// Create context
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-// Provider component
 interface AuthProviderProps {
   children: ReactNode;
 }
@@ -91,7 +86,6 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Initialize auth state on mount
   useEffect(() => {
     const initializeAuth = async () => {
       try {
@@ -109,7 +103,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
     initializeAuth();
   }, []);
 
-  // Login function
   const login = async (
     credentials: LoginCredentials
   ): Promise<AuthResponse> => {
@@ -133,13 +126,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
-  // Logout function
   const logout = () => {
     authService.logout();
     dispatch({ type: "AUTH_LOGOUT" });
   };
 
-  // Verify token function
   const verifyToken = async (): Promise<boolean> => {
     try {
       const isValid = await authService.verifyToken();
@@ -165,7 +156,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
   );
 }
 
-// Hook to use auth context
 export function useAuth(): AuthContextType {
   const context = useContext(AuthContext);
   if (context === undefined) {

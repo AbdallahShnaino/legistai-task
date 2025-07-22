@@ -1,7 +1,3 @@
-/**
- * Utility functions for authentication
- */
-
 interface JWTPayload {
   exp?: number;
   iat?: number;
@@ -9,20 +5,13 @@ interface JWTPayload {
   [key: string]: unknown;
 }
 
-/**
- * Check if a JWT token is expired
- * @param token - JWT token string
- * @returns boolean indicating if token is valid (not expired)
- */
 export function isTokenValid(token: string | null): boolean {
   if (!token) return false;
 
   try {
-    // Decode JWT payload
     const payload = JSON.parse(atob(token.split(".")[1])) as JWTPayload;
     const currentTime = Date.now() / 1000;
 
-    // Check if token has expiration and if it's still valid
     return payload.exp ? payload.exp > currentTime : false;
   } catch (error) {
     console.error("Error validating token:", error);
@@ -30,11 +19,6 @@ export function isTokenValid(token: string | null): boolean {
   }
 }
 
-/**
- * Extract user information from JWT token
- * @param token - JWT token string
- * @returns Decoded payload or null if invalid
- */
 export function decodeToken(token: string | null): JWTPayload | null {
   if (!token) return null;
 
@@ -47,21 +31,11 @@ export function decodeToken(token: string | null): JWTPayload | null {
   }
 }
 
-/**
- * Validate email format
- * @param email - Email string to validate
- * @returns boolean indicating if email is valid
- */
 export function isValidEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
 
-/**
- * Validate password strength
- * @param password - Password string to validate
- * @returns object with validation result and message
- */
 export function validatePassword(password: string): {
   isValid: boolean;
   message?: string;
@@ -80,12 +54,6 @@ export function validatePassword(password: string): {
   return { isValid: true };
 }
 
-/**
- * Validate login credentials
- * @param email - Email string
- * @param password - Password string
- * @returns array of validation errors
- */
 export function validateCredentials(email: string, password: string): string[] {
   const errors: string[] = [];
 

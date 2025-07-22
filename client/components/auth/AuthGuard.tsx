@@ -17,7 +17,6 @@ export default function AuthGuard({
   const router = useRouter();
 
   useEffect(() => {
-    // For development, temporarily bypass authentication
     if (process.env.NODE_ENV === "development") {
       return;
     }
@@ -30,7 +29,6 @@ export default function AuthGuard({
     }
   }, [isLoading, checkAuth, router, redirectTo]);
 
-  // For development, temporarily bypass authentication
   if (process.env.NODE_ENV === "development") {
     return <>{children}</>;
   }
@@ -47,7 +45,7 @@ export default function AuthGuard({
   }
 
   if (!isAuthenticated) {
-    return null; // Will redirect to join-us
+    return null;
   }
 
   return <>{children}</>;

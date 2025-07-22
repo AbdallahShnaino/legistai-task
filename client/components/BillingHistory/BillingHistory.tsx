@@ -50,7 +50,7 @@ export default function BillingHistory() {
             <TableCell>
               <div className="flex items-center gap-2 text-black font-bold">
                 <Image
-                  src="/icons/pdf.svg" // change to your SVG file path
+                  src="/icons/pdf.svg"
                   alt="Invoice Icon"
                   width={16}
                   height={16}
@@ -90,7 +90,7 @@ export default function BillingHistory() {
             <TableCell>
               <div className="flex items-center gap-2 text-black font-bold">
                 <Image
-                  src="/icons/pdf.svg" // change to your SVG file path
+                  src="/icons/pdf.svg"
                   alt="Invoice Icon"
                   width={16}
                   height={16}
@@ -130,7 +130,7 @@ export default function BillingHistory() {
             <TableCell>
               <div className="flex items-center gap-2 text-black font-bold">
                 <Image
-                  src="/icons/pdf.svg" // change to your SVG file path
+                  src="/icons/pdf.svg"
                   alt="Invoice Icon"
                   width={16}
                   height={16}

@@ -1,7 +1,3 @@
-// Backward compatibility layer
-// This file maintains compatibility with existing imports
-// while redirecting to the new modular auth structure
-
 export type {
   User,
   AuthResponse,
@@ -33,5 +29,4 @@ export {
   useRequireAuth,
 } from "./auth/hooks";
 
-// Default export for backward compatibility
 export { authService as default } from "./auth/service";

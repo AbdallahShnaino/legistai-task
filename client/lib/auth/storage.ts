@@ -4,12 +4,10 @@ class AuthStorage {
   private readonly TOKEN_KEY = "auth_token";
   private readonly USER_KEY = "auth_user";
 
-  // Check if we're in browser environment
   private get isClient(): boolean {
     return typeof window !== "undefined";
   }
 
-  // Token management
   setToken(token: string): void {
     if (this.isClient) {
       localStorage.setItem(this.TOKEN_KEY, token);
@@ -29,7 +27,6 @@ class AuthStorage {
     }
   }
 
-  // User management
   setUser(user: User): void {
     if (this.isClient) {
       localStorage.setItem(this.USER_KEY, JSON.stringify(user));
@@ -50,7 +47,6 @@ class AuthStorage {
     }
   }
 
-  // Clear all auth data
   clear(): void {
     this.removeToken();
     this.removeUser();

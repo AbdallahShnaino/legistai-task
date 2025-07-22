@@ -12,7 +12,7 @@ const Sidebar: FC = () => {
 
   const handleLogout = async () => {
     try {
-      logout(); // The useLogout hook already handles the redirect
+      logout();
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -20,9 +20,7 @@ const Sidebar: FC = () => {
 
   return (
     <aside className="w-64 h-screen bg-white text-black  flex flex-col justify-between px-4 py-6">
-      {/* Top Logo and Menu */}
       <div>
-        {/* Logo */}
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-2">
             <Image
@@ -35,10 +33,8 @@ const Sidebar: FC = () => {
           </div>
         </div>
 
-        {/* Welcome */}
         <h2 className="text-2xl text-black mb-6">Welcome to the Legistai!</h2>
 
-        {/* Menu Items */}
         <nav className="flex flex-col gap-2">
           <SidebarItem iconName="dashboard" label="Dashboard" href="/" />
           <SidebarItem iconName="drive" label="Drive" href="/drive" />
@@ -49,7 +45,6 @@ const Sidebar: FC = () => {
         </nav>
       </div>
 
-      {/* Logout */}
       <button
         onClick={handleLogout}
         disabled={isLoading}

@@ -3,7 +3,6 @@ import { AuthResponse, LoginCredentials, AuthError } from "./types";
 class AuthAPI {
   private readonly BASE_URL = "http://127.0.0.1:5000/api/v1/auth";
 
-  // Login or register user
   async loginOrRegister(credentials: LoginCredentials): Promise<AuthResponse> {
     try {
       const response = await fetch(`${this.BASE_URL}/login-or-register`, {
@@ -29,7 +28,6 @@ class AuthAPI {
     }
   }
 
-  // Verify token with backend
   async verifyToken(token: string): Promise<boolean> {
     try {
       const response = await fetch(`${this.BASE_URL}/verify`, {
@@ -46,7 +44,6 @@ class AuthAPI {
     }
   }
 
-  // Get authorization header for API requests
   getAuthHeader(token: string | null): Record<string, string> {
     return token ? { Authorization: `Bearer ${token}` } : {};
   }
