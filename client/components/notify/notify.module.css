@@ -1,0 +1,11 @@
+.notify {
+  background-color: #f7f8fa;
+  border-radius: 40px;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+@media (max-width: 850px) {
+  .notify {
+    padding: 0rem;
+  }
+}
