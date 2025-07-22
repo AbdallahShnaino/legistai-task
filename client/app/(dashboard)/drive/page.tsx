@@ -1,6 +1,9 @@
 export default function DriveScreen() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 text-center">
+    <div
+      className="flex items-center justify-center bg-gray-50 px-4 text-center"
+      style={{ minHeight: "calc(100vh - 100px)" }}
+    >
       <div className="max-w-xl">
         <h1 className="text-2xl font-semibold text-gray-800 mb-4">
           🚧 Drive Page Under Development

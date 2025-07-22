@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import AuthGuard from "../../components/auth/AuthGuard";
+import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 
 const geistSans = Poppins({
   variable: "--font-poppins",
@@ -26,7 +27,10 @@ export default function DashboardLayout({
           <Sidebar />
         </div>
 
-        <div className="flex-1 overflow-auto">{children}</div>
+        <div className="flex-1 overflow-auto">
+          <DashboardHeader />
+          {children}
+        </div>
       </div>
     </AuthGuard>
   );
